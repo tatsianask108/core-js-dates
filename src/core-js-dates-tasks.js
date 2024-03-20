@@ -141,23 +141,22 @@ function isDateInPeriod(date, period) {
  * '1999-01-05T02:20:00.000Z' => '1/5/1999, 2:20:00 AM'
  * '2010-12-15T22:59:00.000Z' => '12/15/2010, 10:59:00 PM'
  */
-function formatDate(/* date */) {
-  // const dateObj = new Date(date);
-  // const a = dateObj.toLocaleDateString('en-US', {
-  //   month: 'numeric',
-  //   day: 'numeric',
-  //   year: 'numeric',
-  // });
+function formatDate(date) {
+  const dateObj = new Date(date);
+  const a = dateObj.toLocaleDateString('en-US', {
+    month: 'numeric',
+    day: 'numeric',
+    year: 'numeric',
+  });
 
-  // const b = dateObj.toLocaleTimeString('en-US', {
-  //   hour: 'numeric',
-  //   minute: '2-digit',
-  //   second: '2-digit',
-  //   hour12: true,
-  // });
+  const b = dateObj.toLocaleTimeString('en-US', {
+    hour: 'numeric',
+    minute: '2-digit',
+    second: '2-digit',
+    hour12: true,
+  });
 
-  // return `${a}, ${b}`;
-  throw new Error('Not implemented');
+  return `${a}, ${b}`;
 }
 
 /**
@@ -268,8 +267,8 @@ function getQuarter(date) {
  * { start: '01-01-2024', end: '15-01-2024' }, 1, 3 => ['01-01-2024', '05-01-2024', '09-01-2024', '13-01-2024']
  * { start: '01-01-2024', end: '10-01-2024' }, 1, 1 => ['01-01-2024', '03-01-2024', '05-01-2024', '07-01-2024', '09-01-2024']
  */
-function getWorkSchedule(/* period, countWorkDays, countOffDays */) {
-  throw new Error('Not implemented');
+function getWorkSchedule(period, countWorkDays, countOffDays) {
+  return period + countOffDays + countWorkDays;
 }
 
 /**
